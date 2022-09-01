@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picocss/1.5.2/pico.min.css" integrity="sha512-3gFq2IXMVlAQaUyahzhjDRivv0yqyXTb7xiy6ivTaG5Uz4hKI54uYxpQefdomgDVQ11eJVUbXG0YdPMDISiGgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>{ifset title}{include title|stripHtml} | {/ifset}GingTeam</title>
+</head>
+
+<body>
+  <nav class="container-fluid">
+    <ul>
+      <li><i class="fa-brands fa-ubuntu fa-2x"></i></li>
+    </ul>
+    <ul>
+      <li><strong>GingTeam</strong></li>
+    </ul>
+    <ul>
+      <li>
+        <details role="list" dir="rtl">
+          <summary aria-haspopup="listbox" role="link" class="secondary">More</summary>
+          <ul role="listbox">
+            <li><a href="https://t.me/+Oer6vgsZ8dIzYTll">Telegram <i class="fa-brands fa-telegram"></i></a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </nav>
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+  <div class="container">
+  	{include content}
+  </div>
+  <footer class="container">
+    <small>Created by <a href="https://facebook.com/gingdev">Gingdev</a></small>
+  </footer>
+	{block scripts}
+	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
+	{/block}
+</body>
+</html>
