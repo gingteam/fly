@@ -13,10 +13,25 @@
       </figure>
     </div>
   </div>
-  <!-- <blockquote>
-    "Oh cringe!"
-    <footer>
-      <cite>- Gingdev</cite>
-    </footer>
-  </blockquote> -->
+  <h1>Khái Phá Dữ Liệu</h1>
+  <ul>
+    <li n:foreach="$questions as $question">
+      <p>
+        {$question->question|noescape}
+        {if $question->image}
+          <br>
+          <img src="https://pesthubt.s3-ap-southeast-1.amazonaws.com/uploads/img/17698/{$question->image}" />
+        {/if}
+        <ul>
+          <li n:foreach="$question->array_answer as $answer">
+            {if $answer->correct}
+              <ins>{$answer->answer|noescape}</ins>
+            {else}
+              {$answer->answer|noescape}
+            {/if}
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ul>
 {/block}
